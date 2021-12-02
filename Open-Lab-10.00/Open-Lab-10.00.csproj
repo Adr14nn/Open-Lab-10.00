@@ -6,4 +6,8 @@
     <RootNamespace>Open_Lab_10._00</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="C:\Users\Admin\Desktop\Program 10.02" Link="Program 10.02" />
+  </ItemGroup>
+
 </Project>

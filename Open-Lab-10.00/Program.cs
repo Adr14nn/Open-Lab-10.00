@@ -7,12 +7,12 @@ namespace Open_Lab_10._00
         static void Main(string[] args)
         {
             Book LOTR = new Book();
-            LOTR.Title("Život Pepika");
-            LOTR.Pages(20);
-            LOTR.Category("sci-fi");
-            LOTR.Author("Štefan");
-            LOTR.ReleaseDate(2022);
-            LOTR.vypisovač();
+            LOTR.Title="Život pepika";
+            LOTR.Pages=20;
+            LOTR.Category="sci-fi";
+            LOTR.Author="Štefan";
+            LOTR.ReleaseDate=2020;
+            LOTR.printer();
                 
             
         }
@@ -24,35 +24,84 @@ namespace Open_Lab_10._00
         private string category;
         private string author;
         private int releaseDate;
-        public void Title(string gettitle)
+        public string Title
         {
-            title = gettitle;
+            get
+            {
+                return title;
+            }
+            set
+            {
+                title = value;
+            }
         }
-        public void Pages(int getpages)
+        public int Pages
         {
-            pages = getpages;
+           get
+            {
+                return pages;
+            }
+            set
+            {
+                if (value <0)
+                {
+                    pages = 1;
+                }
+                else
+                {
+                    pages = value;
+                }
+            }
 
         }
-        public void Category(string getcategory)
+        public string Category
         {
-            category = getcategory;
+            get
+            {
+                return category;
+            }
+            set
+            {
+                category = value;
+            }
         }
-        public void Author(string getauthor)
+        public string Author
         {
-            author = getauthor;
+            get
+            {
+                return author;
+            }
+            set
+            {
+                author = value;
+            }
         }
-        public void ReleaseDate(int getreleaseDate)
+        public int ReleaseDate
         {
-            releaseDate = getreleaseDate;
+            get
+            {
+                return releaseDate;
+            }
+            set
+            {
+                if (value <= 2021 && value >= 1450)
+                {
+                    releaseDate = value;
+                }
+                else
+                {
+                    releaseDate = -1;
+                }
+            }
         }
 
-        public void vypisovač()
+        public void printer()
         {
-            Console.WriteLine(title);
-            Console.WriteLine(pages);
-            Console.WriteLine(category);
-            Console.WriteLine(author);
-            Console.WriteLine(releaseDate);
+            Console.WriteLine(Title);
+            Console.WriteLine(Pages);
+            Console.WriteLine(Category);
+            Console.WriteLine(Author);
+            Console.WriteLine(ReleaseDate);
         }
 
             
