@@ -12,7 +12,7 @@ namespace Open_Lab_10._00
             LOTR.Category="sci-fi";
             LOTR.Author="Štefan";
             LOTR.ReleaseDate=2020;
-            LOTR.printer();
+            LOTR.Write();
                 
             
         }
@@ -95,7 +95,7 @@ namespace Open_Lab_10._00
             }
         }
 
-        public void printer()
+        public void Write()
         {
             Console.WriteLine(Title);
             Console.WriteLine(Pages);
