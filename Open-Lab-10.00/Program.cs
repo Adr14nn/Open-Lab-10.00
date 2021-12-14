@@ -1,109 +1,94 @@
 ﻿using System;
-
-namespace Open_Lab_10._00
+namespace Open_Lab_10._03
 {
     class Program
     {
         static void Main(string[] args)
         {
             Book LOTR = new Book();
-            LOTR.Title="Život pepika";
-            LOTR.Pages=20;
-            LOTR.Category="sci-fi";
-            LOTR.Author="Štefan";
-            LOTR.ReleaseDate=2020;
+            Book LOTR2 = new Book(144, "Život Pepika");
+            Book LOTR3 = new Book(300, "Čarovný príbeh Jožka z jarku", 2022, "Sci-Fi", "Peter");
+            Book HOBIT = new Book();
             LOTR.Write();
-                
-            
+            LOTR2.Write();
+            LOTR3.Write();
+            HOBIT.Write();
         }
-    }
-    class Book
-    {
-        private string title;
-        private int pages;
-        private string category;
-        private string author;
-        private int releaseDate;
-        public string Title
+        public class Book
         {
-            get
+            public Book()
             {
-                return title;
+                RelaseDate = -1;
+                Pages = -1;
+                Title = "-1";
+                Cathegory = "-1";
+                Author = "-1";
             }
-            set
+
+            public Book(int pages, string title)
             {
-                title = value;
+                Pages = pages;
+                Title = title;
+                RelaseDate = -1;
+                Cathegory = "-1";
+                Author = "-1";
             }
-        }
-        public int Pages
-        {
-           get
+
+            public Book(int pages, string title, int relaseDate, string cathegory, string author)
             {
-                return pages;
+                Pages = pages;
+                Title = title;
+                RelaseDate = relaseDate;
+                Cathegory = cathegory;
+                Author = author;
             }
-            set
+
+
+            public string Title { get; set; }
+            private int pages;
+            public int Pages
             {
-                if (value <0)
+                get { return pages; }
+                set
                 {
-                    pages = 1;
+                    if (value < 0)
+                    {
+                        pages = 1;
+                    }
+                    else
+                    {
+                        pages = value;
+                    }
                 }
-                else
+            }
+            public string Cathegory { get; set; }
+            public string Author { get; set; }
+            private int relaseDate;
+            public int RelaseDate
+            {
+                get { return relaseDate; }
+                set
                 {
-                    pages = value;
+                    if (value < 1450 || value > 2021)
+                    {
+                        relaseDate = -1;
+                    }
+                    else
+                    {
+                        relaseDate = value;
+                    }
                 }
             }
 
-        }
-        public string Category
-        {
-            get
+            public void Write()
             {
-                return category;
-            }
-            set
-            {
-                category = value;
-            }
-        }
-        public string Author
-        {
-            get
-            {
-                return author;
-            }
-            set
-            {
-                author = value;
-            }
-        }
-        public int ReleaseDate
-        {
-            get
-            {
-                return releaseDate;
-            }
-            set
-            {
-                if (value <= 2021 && value >= 1450)
-                {
-                    releaseDate = value;
-                }
-                else
-                {
-                    releaseDate = -1;
-                }
-            }
-        }
+                Console.WriteLine("Názov: " + Title);
+                Console.WriteLine("Počet strán: " + Pages);
+                Console.WriteLine("Žáner: " + Cathegory);
+                Console.WriteLine("Autor: " + Author);
+                Console.WriteLine("Dátum vydania: " + RelaseDate);
 
-        public void Write()
-        {
-            Console.WriteLine(Title);
-            Console.WriteLine(Pages);
-            Console.WriteLine(Category);
-            Console.WriteLine(Author);
-            Console.WriteLine(ReleaseDate);
+            }
         }
-
-            
     }
 }
