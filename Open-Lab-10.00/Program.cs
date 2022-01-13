@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace Open_Lab_10._03
 {
     class Program
@@ -8,7 +9,7 @@ namespace Open_Lab_10._03
             Book LOTR = new Book();
             Book LOTR2 = new Book(144, "Život Pepika");
             Book LOTR3 = new Book(300, "Čarovný príbeh Jožka z jarku", 2022, "Sci-Fi", "Peter");
-            Book HOBIT = new Book();
+            Book HOBIT = new Book(264, "Bačova koliba", 2022, Book.categoryList[2], "Rikardo");
             LOTR.Write();
             LOTR2.Write();
             LOTR3.Write();
@@ -16,6 +17,13 @@ namespace Open_Lab_10._03
         }
         public class Book
         {
+            /// <summary>
+            /// Created list
+            /// </summary>
+            public static List<string> categoryList = new List<string>
+            {
+                "detské", "romantické", "náučné", "sci-fi", "dobrodružné"
+            };
             public Book()
             {
                 RelaseDate = -1;
@@ -61,7 +69,7 @@ namespace Open_Lab_10._03
                     }
                 }
             }
-            public string Cathegory { get; set; }
+            public string Cathegory { private get; set; }
             public string Author { get; set; }
             private int relaseDate;
             public int RelaseDate
